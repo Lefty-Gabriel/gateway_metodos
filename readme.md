@@ -1,39 +1,32 @@
 
-# 🧪 Pruebas de Microservicios NestJS (TCP, Redis, NATS)
+# Prueba de Microservicios NestJS (TCP, Redis)
 
-Este proyecto consiste en un gateway que se comunica con 3 microservicios usando diferentes transportes: TCP, Redis y NATS. A continuación se detallan los pasos para probarlos.
+Los Endpoints disponibles
 
----
-
-## 🚀 Endpoints disponibles (Gateway)
-
-Los siguientes endpoints están disponibles para probar los microservicios:
 
 - `GET /tcp` → Prueba el microservicio TCP
 - `GET /redis` → Prueba el microservicio Redis
-- `GET /nats` → Prueba el microservicio NATS
 
 ---
 
-## ✅ Requisitos previos
+## Requisitos
 
 - Node.js y npm instalados.
 - Docker para Redis y NATS.
 - NestJS CLI (`npm i -g @nestjs/cli`).
-- Todos los microservicios deben estar en carpetas separadas: `/gateway`, `/tcp-ms`, `/redis-ms`, `/nats-ms`.
+- Todos los microservicios deben estar en carpetas separadas: `/gateway`, `/tcp-ms`, `/redis-ms`.
 
 ---
 
-## 🐳 Levantar Redis y NATS con Docker
+## Levantar Redis y NATS con Docker
 
 ```bash
 docker run -d --name redis-micro -p 6379:6379 redis
-docker run -d --name nats-micro -p 4222:4222 nats
 ```
 
 ---
 
-## ▶️ Iniciar servicios
+## Iniciar servicios
 
 En cada terminal, desde sus respectivas carpetas:
 
@@ -53,29 +46,18 @@ cd redis-ms
 npm install
 npm run start
 
-# Microservicio NATS
-cd nats-ms
-npm install
-npm run start
-```
 
----
+## Los Probar endpoints
 
-## 🌐 Probar endpoints
-
-Desde Postman o navegador, visitar:
+Desde Postman:
 
 - http://localhost:3000/tcp
 - http://localhost:3000/redis
-- http://localhost:3000/nats
 
 ---
 
-## 🔚 Respuestas esperadas
+##Respuestas esperadas
 
 - `/tcp` → `"Hello from TCP microservice"`
 - `/redis` → `"Hello from Redis microservice"`
-- `/nats` → `"Hello from NATS microservice"`
-
----
 
